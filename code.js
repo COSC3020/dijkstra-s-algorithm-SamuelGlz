@@ -3,6 +3,10 @@ function dijkstra(graph, sourceNode) {
     distances = {};
     neighbors = [];
 
+    if(!(Object.values(graph).length)>0){
+        return graph;
+    }
+
     //adding the value of infinity to all the vertexes
     for (let vertex in graph) {
         if (vertex == sourceNode) { distances[vertex] = 0;}
@@ -48,12 +52,3 @@ function dijkstra(graph, sourceNode) {
 
     return distances;
 }
-
-
-
-var graph = { 'a': { 'b': 3, 'c': 2},
-    'b': {'d': 2 },
-    'c': {'d': 6},
-    'd': {}}
-
-console.log(dijkstra(graph, 'a'))
